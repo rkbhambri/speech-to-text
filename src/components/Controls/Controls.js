@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import GoogleVoiceIcon from '../../images/voice.svg';
+import React, { useState, useEffect } from 'react';
 import ControlButtons from './ControlButtons/ControlButtons';
+import Note from './Note/Note';
+import ErrorDescription from '../ErrorDescription/ErrorDescription';
 
 const Controls = (props) => {
     const browserSpecificRecognition = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
@@ -9,6 +10,12 @@ const Controls = (props) => {
     const [disablePause, setDisablePause] = useState(false);
     const [error, setError] = useState(null);
     let [speechText, setSpeechText] = useState();
+
+    // useEffect(() => {
+    //     recognition.lang = 'en-IN';
+    //     recognition.continuous = true;
+    //     recognition.start();
+    // }, []);
 
     const startRecognition = (event) => {
         event.preventDefault();
@@ -22,7 +29,6 @@ const Controls = (props) => {
     };
 
     recognition.onresult = (event) => {
-        console.log('event.results===', event.results)
         const resultsLength = event.results.length;
         for (let i = event.resultIndex; i < resultsLength; i++) {
             const transcript = event.results[i][0].transcript;
@@ -44,42 +50,20 @@ const Controls = (props) => {
 
     return (
         <div className="controls mt-4">
-            <form>
-                <h3>
-                    Add Note
-                    <span className="pl-1">
-                        <img
-                            src={GoogleVoiceIcon}
-                            alt="Not available"
-                            style={{ width: '30px', height: '20px' }}
-                            onClick={(event) => startRecognition(event)} />
-                    </span>
-                </h3>
-                <textarea
-                    rows="10"
-                    className="form-control mt-4"
-                    name="text"
-                    placeholder="Your voice enabled text here......"
-                    value={speechText} />
+            <form className="controls-form">
+                <Note
+                    startRecognition={(event) => startRecognition(event)}
+                    disableStart={disableStart}
+                    speechText={speechText}
+                />
+
                 <ControlButtons
                     startRecognition={(event) => startRecognition(event)}
                     pauseRecognition={(event) => pauseRecognition(event)}
                     disableStart={disableStart}
                     disablePause={disablePause}
                 />
-                {
-                    error &&
-                    <div className="alert alert-danger mt-3">
-                        <div className="w-100 row">
-                            <div className="col-md-11">Error occurred in recognition </div>
-                            <div
-                                className="col-md-1 text-right"
-                                onClick={() => setError(null)}>
-                                &#10007;
-                        </div>
-                        </div>
-                    </div>
-                }
+                {error && <ErrorDescription setError={(setNull) => setError(setNull)} />}
             </form>
         </div>
     );
