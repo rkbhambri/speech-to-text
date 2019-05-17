@@ -1,7 +1,7 @@
 {
 	"name": "speech-to-text",
 	"version": "0.1.0",
-	"homepage": "https://rkbhambri.github.io/speech-to-text",
+	"homepage": "https://rkbhambri.github.io/speech-to-text/",
 	"private": true,
 	"dependencies": {
 		"bootstrap": "^4.3.1",
