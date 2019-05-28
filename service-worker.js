@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/speech-to-text/precache-manifest.1e342e7623c06095203b69d0ef1e8a58.js"
+  "/speech-to-text/precache-manifest.f209448d6bfc559a918c5a35080b4682.js"
 );
 
 self.addEventListener('message', (event) => {

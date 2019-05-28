@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7ef9c0de39cd0aae7a19ea509571353a",
+    "revision": "6ea3d0000a79867a37b80629b9039a53",
     "url": "/speech-to-text/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/speech-to-text/static/css/2.266e55a5.chunk.css"
   },
   {
-    "revision": "0489467711c5d738741a",
+    "revision": "3281e8036c6b13e2f008",
     "url": "/speech-to-text/static/css/main.5209d037.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/speech-to-text/static/js/2.f3300468.chunk.js"
   },
   {
-    "revision": "0489467711c5d738741a",
-    "url": "/speech-to-text/static/js/main.cc23af76.chunk.js"
+    "revision": "3281e8036c6b13e2f008",
+    "url": "/speech-to-text/static/js/main.ada9bc0c.chunk.js"
   },
   {
     "revision": "69493da211f6504494b5",
