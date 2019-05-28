@@ -19,13 +19,15 @@ const Controls = (props) => {
 
     const startRecognition = (event) => {
         event.preventDefault();
-        recognition.lang = 'en-IN';
-        recognition.continuous = true;
-        // recognition.interimResults = true;
-        // recognition.maxAlternatives = 5;
-        setDisableStart(true);
-        disablePause && setDisablePause(false)
-        recognition.start();
+        if (!disableStart) {
+            recognition.lang = 'en-IN';
+            recognition.continuous = true;
+            // recognition.interimResults = true;
+            // recognition.maxAlternatives = 5;
+            setDisableStart(true);
+            disablePause && setDisablePause(false)
+            recognition.start();
+        }
     };
 
     recognition.onresult = (event) => {
@@ -37,9 +39,9 @@ const Controls = (props) => {
         }
     };
 
-    recognition.onerror = (event) => {
-        setError(event.error);
-    };
+    // recognition.onerror = (event) => {
+    //     setError(event.error);
+    // };
 
     const pauseRecognition = (event) => {
         event.preventDefault();
